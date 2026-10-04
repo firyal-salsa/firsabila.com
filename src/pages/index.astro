@@ -3,10 +3,9 @@ import Layout from '../layouts/Layout.astro';
 
 const projects = [
   {
-    id: "01",
     name: "Shipyard",
     tags: ["Linux", "Docker", "HAProxy"],
-    desc: "Mini PaaS with blue-green vs canary deployments using Linux, Docker, and HAProxy. Hands-on exploration of deployment strategies and traffic shaping at the infra level.",
+    desc: "A mini PaaS for comparing blue-green and canary deployments, built on Linux, Docker and HAProxy. A hands-on look at deployment strategies and traffic shaping at the infrastructure level.",
     status: "personal",
     year: "2026",
     github: "https://github.com/firyal-salsa/shipyard"
@@ -15,112 +14,80 @@ const projects = [
 
 const social = [
   { label: "GitHub", href: "https://github.com/firyal-salsa", icon: "gh" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/firyal-y-salsabila/", icon: "li" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/firyal-y-salsabila/", icon: "in" },
   { label: "Medium", href: "https://medium.com/@firsabilacahyadi/about", icon: "md" },
   { label: "Instagram", href: "https://www.instagram.com/viola.tte/", icon: "ig" },
 ];
 ---
 
 <Layout>
-  <!-- ── DARK SITE ────────────────────────────────────── -->
+  <!-- ═══ WORK SIDE ═══ -->
   <div id="dark-site">
 
-    <!-- HERO -->
     <section class="hero">
-      <div class="hero-bg-grid"></div>
-      <div class="container">
-        <div class="hero-inner">
-          <div class="hero-badge">
-            <span class="dot"></span>
-            <span>Open for new opportunity</span>
-          </div>
-          <div class="hero-name-block">
-            <p class="hero-label">Firyal Yusriyah Salsabila</p>
-            <h1 class="hero-name">
-              <span class="line1">DevOps</span>
-              <span class="line1">Engineer</span>
-            </h1>
-          </div>
-          <div class="hero-desc-block">
-            <div class="terminal-line">
-              <span class="prompt">$ </span>
-              <span class="cmd" id="typewriter"></span>
-              <span class="cursor">▋</span>
-            </div>
-            <p class="hero-bio">
-              <span class="hero-headline">🃏 Jack of All Trades in IT Stuff</span><br/>
-              System Engineer at Enterprise Banking, Indonesia.
-              A tinkerer who loves to create magical things with microcontrollers.
-            </p>
-          </div>
-          <div class="hero-meta">
-            <div class="meta-item">
-              <span class="meta-label">base</span>
-              <span class="meta-val">Jakarta, ID (open to relocate)</span>
-            </div>
-            <div class="meta-sep">·</div>
-            <div class="meta-item">
-              <span class="meta-label">domain</span>
-              <span class="meta-val">DevOps / SRE</span>
-            </div>
-            <div class="meta-sep">·</div>
-            <div class="meta-item">
-              <span class="meta-label">sector</span>
-              <span class="meta-val">Banking Infra</span>
-            </div>
-          </div>
+      <div class="container hero-inner">
+        <p class="hero-badge"><span class="dot"></span>Open to new opportunities</p>
+
+        <div class="hero-name-block">
+          <p class="hero-label">Firyal Yusriyah Salsabila</p>
+          <h1 class="hero-name">
+            <span>Database</span>
+            <span class="soft">Engineer</span>
+          </h1>
         </div>
-      </div>
-      <div class="scroll-hint">
-        <div class="scroll-line"></div>
-        <span>scroll</span>
+
+        <div class="hero-desc-block">
+          <div class="terminal" aria-hidden="true">
+            <div class="terminal-bar"><i></i><i></i><i></i></div>
+            <div class="terminal-body">
+              <span class="prompt">$ </span><span id="typewriter"></span><span class="cursor">▋</span>
+            </div>
+          </div>
+          <p class="hero-bio">
+            <strong>Jack of all trades in IT.</strong><br />
+            System engineer in enterprise banking, Indonesia. I basically run the operations for ETL reconciliation apps
+          </p>
+        </div>
+
+        <dl class="hero-meta">
+          <div><dt>Based in</dt><dd>Jakarta, open to relocate</dd></div>
+          <div><dt>Focus</dt><dd>DBA and SysOps</dd></div>
+          <div><dt>Sector</dt><dd>Banking infrastructure</dd></div>
+        </dl>
       </div>
     </section>
 
-    <!-- ABOUT STRIP -->
     <section class="about-strip">
-      <div class="container">
-        <div class="strip-inner">
-          <div class="strip-tag">001 / about</div>
-          <div class="strip-content">
-            <p>
-              I highly enthusiast about designing system architectures and keeping resources 
-              efficient without neglecting performance tuning and high availability.
-            </p>
-          </div>
-          <div class="strip-skills">
-            {["Kubernetes", "Confluent Kafka", "ArgoCD", "Grafana", "Ansible", "Python", "Linux"].map(s => (
-              <span class="skill-chip">{s}</span>
-            ))}
-          </div>
+      <div class="container strip-inner">
+        <h2 class="strip-title">About</h2>
+        <div class="strip-content">
+          <p>
+            I am highly enthusiastic about green software theory, which can optimize queries and allocate resources to minimize energy consumption and reduce carbon footprints. 
+          </p>
+        </div>
+        <div class="strip-skills">
+          {["MS SQL Server", "Linux", "Python", "Confluent Kafka", "Ansible"].map(s => (
+            <span class="chip">{s}</span>
+          ))}
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section class="projects" id="projects">
       <div class="container">
-        <div class="section-header">
-          <span class="section-tag">002 / work</span>
-          <h2 class="section-title">Selected Projects</h2>
-        </div>
-        <div class="project-grid project-grid--single">
+        <h2 class="section-title">Selected projects</h2>
+        <div class="project-grid">
           {projects.map((p) => (
-            <article class="project-card" data-status={p.status}>
+            <article class="project-card">
               <div class="card-top">
-                <span class="card-id">{p.id}</span>
-                <span class={`card-status ${p.status}`}>{p.status}</span>
+                <h3 class="card-name">{p.name}</h3>
+                <span class="card-status">{p.status}</span>
               </div>
-              <h3 class="card-name">{p.name}</h3>
               <p class="card-desc">{p.desc}</p>
               <div class="card-footer">
-                <div class="card-tags">
-                  {p.tags.map(t => <span class="tag">{t}</span>)}
-                </div>
+                <div class="card-tags">{p.tags.map(t => <span class="tag">{t}</span>)}</div>
                 <div class="card-footer-right">
-                  {p.github && (
-                    <a href={p.github} target="_blank" rel="noopener" class="card-github">GitHub ↗</a>
-                  )}
+                  {p.github && <a href={p.github} target="_blank" rel="noopener" class="card-github">GitHub ↗</a>}
                   <span class="card-year">{p.year}</span>
                 </div>
               </div>
@@ -130,980 +97,378 @@ const social = [
       </div>
     </section>
 
-    <!-- KEEP IN TOUCH -->
     <section class="contact" id="contact">
-      <div class="container">
-        <div class="contact-inner">
-          <div class="contact-left">
-            <span class="section-tag">003 / connect</span>
-            <h2 class="contact-title">Keep in Touch</h2>
-            <p class="contact-sub">
-              Got an interesting infra problem, want to collab on a hardware project, 
-              or just wanna talk DevOps? Slide in.
-            </p>
-          </div>
-          <div class="contact-right">
-            <div class="social-grid">
-              {social.map(s => (
-                <a href={s.href} target="_blank" rel="noopener" class="social-card">
-                  <div class="social-icon-wrap">
-                    <span class="social-icon-text">{s.icon}</span>
-                  </div>
-                  <span class="social-label">{s.label}</span>
-                  <span class="social-arrow">↗</span>
-                </a>
-              ))}
-            </div>
-          </div>
+      <div class="container contact-inner">
+        <div>
+          <h2 class="contact-title">Keep in touch</h2>
+          <p class="contact-sub">Tuning queries, taming resource usage, or curious how greener software starts at the database? Let's compare notes. Say hi.
+          </p>
+        </div>
+        <div class="social-grid">
+          {social.map(s => (
+            <a href={s.href} target="_blank" rel="noopener" class="social-card">
+              <span class="social-icon">{s.icon}</span>
+              <span class="social-label">{s.label}</span>
+              <span class="social-arrow">↗</span>
+            </a>
+          ))}
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer">
-      <div class="container">
-        <div class="footer-inner">
-          <span class="footer-copy">© 2026 · built with ☕</span>
-          <span class="footer-sig mono">~/personal/website</span>
-        </div>
+      <div class="container footer-inner">
+        <span>© 2026 · built with ☕</span>
+        <span class="mono">~/personal/website</span>
       </div>
     </footer>
+  </div>
 
-  </div><!-- end dark-site -->
-
-  <!-- ── LIGHT SITE (Another Side) ─────────────────────── -->
+  <!-- ═══ ANOTHER SIDE ═══ -->
   <div id="light-site" class="hidden">
     <nav class="light-nav">
-      <div class="container">
-        <div class="light-nav-inner">
-          <span class="light-nav-logo">another side</span>
-          <div class="light-nav-links">
-            <a href="#hobbies" class="light-nav-link active" data-tab="hobbies">my hobbies</a>
-            <a href="#contribute" class="light-nav-link" data-tab="contribute">contribute</a>
-          </div>
+      <div class="container light-nav-inner">
+        <span class="light-nav-logo">another side</span>
+        <div class="light-nav-links">
+          <a href="#hobbies" class="light-nav-link active" data-tab="hobbies">hobbies</a>
+          <a href="#contribute" class="light-nav-link" data-tab="contribute">giving back</a>
         </div>
       </div>
     </nav>
 
     <div class="light-content">
-      <!-- HOBBIES TAB -->
       <section class="light-section" id="tab-hobbies">
         <div class="container">
-          <div class="light-hero">
-            <p class="light-overline">beyond the terminal</p>
-            <h2 class="light-title">Things I <span class="serif-style">Love</span></h2>
-          </div>
+          <h2 class="light-title">Things I <em>love</em></h2>
+          <p class="light-lede">Away from the terminal.</p>
+
           <div class="hobby-grid">
-            <!-- IoT Clay Sculpture — big card with photo grid -->
             <div class="hobby-card hc-full">
               <div class="hobby-card-header">
-                <div class="hobby-emoji">🗿</div>
+                <span class="hobby-emoji">🗿</span>
                 <div>
-                  <h3>IoT Clay Sculpture</h3>
+                  <h3>IoT clay sculpture</h3>
                   <p class="hobby-sub">
-                    Sometimes I need to ground myself when I've been daydreaming for too long. 
-                    Sculpting helps keep my mind present and allows me to truly enjoy the moment. 
-                    I have so many unconventional ideas and this medium helps bring them to life.
+                    When I've been daydreaming too long, sculpting grounds me. It keeps my mind in the moment, and it gives my unconventional ideas a body.
                   </p>
                 </div>
               </div>
               <div class="clay-gallery">
-                <div class="clay-photo" data-desc="Air clay tree with controllable RGB lights via Telegram bot. ESP32 + WS2812B LEDs + DHT11 temperature sensor with OLED display.">
+                <div class="clay-photo" tabindex="0">
                   <div class="clay-placeholder cp1">
-                    <img src="/claytree.jpeg" alt="Clay tree" />
+                    <img src="/claytree.jpeg" alt="Air clay tree with glowing lights" />
                     <span class="clay-chip">ESP32 · OLED · DHT11</span>
                   </div>
-                  <div class="clay-overlay">
-                    <p>Air clay tree — lights controllable via Telegram. ESP32 + LCD OLED + Relay + DHT11. Real-time temp display.</p>
-                  </div>
+                  <div class="clay-overlay"><p>Air clay tree with lights controlled over Telegram. ESP32, OLED, relay and a DHT11 showing live temperature.</p></div>
                 </div>
-                <div class="clay-photo" data-desc="Mushroom lamp sculpture with moisture sensor. Glows warmer when humidity rises.">
+                <div class="clay-photo" tabindex="0">
                   <div class="clay-placeholder cp2">
                     <span class="clay-icon">🍄</span>
                     <span class="clay-chip">ESP8266 · Sensor</span>
                   </div>
-                  <div class="clay-overlay">
-                    <p>Mushroom lamp with ambient moisture sensor — glows warmer as humidity rises. ESP8266 + NeoPixel ring.</p>
-                  </div>
+                  <div class="clay-overlay"><p>Mushroom lamp with a moisture sensor. It glows warmer as humidity rises. ESP8266 and a NeoPixel ring.</p></div>
                 </div>
-                <div class="clay-photo" data-desc="Mini terrarium dome with automated misting and sunset LED cycle.">
+                <div class="clay-photo" tabindex="0">
                   <div class="clay-placeholder cp3">
                     <span class="clay-icon">🪴</span>
                     <span class="clay-chip">RP2040 · Servo</span>
                   </div>
-                  <div class="clay-overlay">
-                    <p>Terrarium dome with automated misting system and sunset LED cycle. RP2040 + servo + RTC module.</p>
-                  </div>
+                  <div class="clay-overlay"><p>Terrarium dome with automated misting and a sunset LED cycle. RP2040, servo and RTC module.</p></div>
                 </div>
               </div>
               <div class="hobby-tags">
-                <span>Air Clay</span><span>ESP32</span><span>OLED</span><span>DHT11</span><span>Telegram Bot</span><span>WS2812B</span><span>MQTT</span>
+                <span>Air clay</span><span>ESP32</span><span>OLED</span><span>DHT11</span><span>Telegram bot</span><span>WS2812B</span><span>MQTT</span>
               </div>
             </div>
 
-            <!-- Gaming -->
             <div class="hobby-card">
-              <div class="hobby-emoji">🎮</div>
+              <span class="hobby-emoji">🎮</span>
               <h3>Gaming</h3>
-              <p>Strategy, puzzles, and atmospheric horror. From commanding civilizations in Rise of Nations to solving intricate puzzles in The Room, building villages in Clash of Clans, feeling the rhythm in Deemo, and surviving the dread of Mermaid Swamp, Ib, and Mad Father.</p>
-              <div class="hobby-tags">
-                <span>Rise of Nations</span><span>Clash of Clans</span><span>Deemo</span><span>The Room</span><span>RPG Puzzle</span>
-              </div>
+              <p>Strategy, puzzles and atmospheric horror. Commanding civilizations in Rise of Nations, solving The Room, building villages in Clash of Clans, feeling the rhythm of Deemo, and surviving Mermaid Swamp, Ib and Mad Father.</p>
+              <div class="hobby-tags"><span>Rise of Nations</span><span>Clash of Clans</span><span>Deemo</span><span>The Room</span></div>
             </div>
 
-            <!-- Reading -->
             <div class="hobby-card">
-              <div class="hobby-emoji">📚</div>
+              <span class="hobby-emoji">📚</span>
               <h3>Reading</h3>
-              <p>Philosophical inquiry and classic literature. The kind of books that rearrange how you think — Stoicism, existentialism, and the great works that have outlasted their centuries.</p>
-              <div class="hobby-tags"><span>Philosophy</span><span>Classic Lit</span><span>Stoicism</span></div>
+              <p>Philosophy and classic literature, the kind of books that rearrange how you think. Stoicism, existentialism, and works that have outlasted their centuries.</p>
+              <div class="hobby-tags"><span>Philosophy</span><span>Classics</span><span>Stoicism</span></div>
             </div>
 
-            <!-- Swimming -->
             <div class="hobby-card">
-              <div class="hobby-emoji">🏊</div>
+              <span class="hobby-emoji">🏊</span>
               <h3>Swimming</h3>
-              <p>The one place with no terminals, no alerts, no pagers. Just water, rhythm, and thinking through problems without realizing it.</p>
+              <p>The one place with no terminals, alerts or pagers. Just water, rhythm, and problems that get solved without noticing.</p>
               <div class="hobby-tags"><span>Freestyle</span><span>Meditative</span></div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- CONTRIBUTE TAB -->
       <section class="light-section hidden" id="tab-contribute">
         <div class="container">
-          <div class="light-hero">
-            <p class="light-overline">open source & community</p>
-            <h2 class="light-title">How I <span class="serif-style">Give Back</span></h2>
-          </div>
+          <h2 class="light-title">How I <em>give back</em></h2>
+          <p class="light-lede">Open source, community and the ocean.</p>
+
           <div class="contribute-grid">
-            <!-- Mission statement — full width -->
             <div class="contrib-card cc-mission">
-              <div class="mission-icon">🌱</div>
+              <span class="mission-icon">🌱</span>
               <p class="mission-text">
-                I live by the mission that technology was born to empower living creatures 
-                to make Earth a better place. Enthusiast about climate change (SDG 13) and 
-                keen on renewable energy + sustainable tech solutions that actually matter.
+                I care about climate action (SDG 13) and about renewable energy and sustainable tech that actually matters.
               </p>
             </div>
 
-            <!-- Ocean volunteering -->
             <div class="contrib-card cc-featured">
-              <span class="contrib-label">volunteering</span>
-              <h3>🐠 Ocean Young Guard Volunteering Trip</h3>
-              <p>Joined the Ocean Young Guard program for an on-ground volunteering trip focused on coral reef restoration.</p>
-              <div class="hobby-tags" style="margin-top:0.25rem">
-                <span>Coral Restoration</span><span>Marine Ecology</span><span>Conservation</span>
+              <span class="contrib-label">Volunteering</span>
+              <h3>🐠 Ocean Young Guard trip</h3>
+              <p>Joined an on-ground volunteering trip focused on coral reef restoration.</p>
+              <div class="hobby-tags">
+                <span>Coral restoration</span><span>Marine ecology</span><span>Conservation</span>
               </div>
             </div>
 
             <div class="contrib-card">
-              <span class="contrib-label">writing</span>
-              <h3>Technical Writing on Medium</h3>
-              <p>I document real-world DevOps war stories like incidents survived, patterns that saved us, and lessons learned the hard way in production.</p>
-              <a href="https://medium.com" target="_blank" class="contrib-link">Read on Medium ↗</a>
+              <span class="contrib-label">Writing</span>
+              <h3>Technical writing on Medium</h3>
+              <p>Real-world DevOps war stories: incidents survived, patterns that saved us, and lessons learned the hard way in production.</p>
+              <a href="https://medium.com/@firsabilacahyadi" target="_blank" rel="noopener" class="contrib-link">Read on Medium ↗</a>
             </div>
           </div>
         </div>
       </section>
     </div>
-  </div><!-- end light-site -->
+  </div>
 
-  <!-- ── SIDE TOGGLE ────────────────────────────────────── -->
-  <button id="mode-toggle" aria-label="Switch mode">
-    <span class="toggle-tooltip">another side of me</span>
-    <div class="toggle-inner">
-      <span class="toggle-icon dark-icon">◑</span>
-      <span class="toggle-icon light-icon" style="display:none">◐</span>
-    </div>
+  <button id="mode-toggle" type="button" aria-pressed="false" aria-label="Show another side of me">
+    <span class="toggle-text">another side of me</span>
+    <span class="toggle-icon">◑</span>
   </button>
-
 </Layout>
 
 <style>
-/* ── HERO ────────────────────────────────────────────── */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  padding: 6rem 0 4rem;
-  overflow: hidden;
-}
-
-.hero-bg-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(184,197,214,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(184,197,214,0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
-}
-
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto auto;
-  gap: 0;
-  position: relative;
-}
+/* ── HERO ── */
+.hero { min-height: 100vh; display: flex; align-items: center; position: relative; padding: 6rem 0 4rem; overflow: hidden; }
+.hero-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; position: relative; animation: rise 0.9s var(--ease-out) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
 .hero-badge {
-  grid-column: 1 / -1;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--c-glow);
-  border: 1px solid var(--c-border);
-  border-radius: 100px;
-  padding: 0.3rem 0.9rem;
-  width: fit-content;
-  margin-bottom: 2.5rem;
-  font-size: 11px;
-  color: var(--c-mid);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  animation: fadeIn 0.8s var(--ease-out) both;
+  grid-column: 1 / -1; display: inline-flex; align-items: center; gap: 0.5rem; width: fit-content;
+  padding: 0.3rem 0.9rem; margin-bottom: 2.5rem; font-size: 13px; color: var(--c-muted);
+  border: 1px solid var(--c-border); border-radius: 100px; background: var(--c-glow);
 }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--c-accent); box-shadow: 0 0 8px var(--c-accent); animation: pulse 2.4s infinite; }
+@keyframes pulse { 50% { opacity: 0.5; transform: scale(0.8); } }
 
-.dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: #4ade80;
-  box-shadow: 0 0 6px #4ade80;
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.7; transform: scale(0.85); }
-}
-
-.hero-name-block {
-  grid-column: 1 / 2;
-  animation: fadeUp 0.9s 0.1s var(--ease-out) both;
-}
-
-.hero-label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--c-mid);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 0.75rem;
-}
-
+.hero-label { font-size: 15px; color: var(--c-muted); margin-bottom: 0.75rem; }
 .hero-name {
-  font-family: var(--font-display);
-  font-size: clamp(3.2rem, 7vw, 6rem);
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
-  color: var(--c-fog);
+  font-size: clamp(2.8rem, 7vw, 5.5rem); line-height: 1.05; letter-spacing: -0.03em; font-weight: 500;
 }
-.hero-name .line1 { display: block; }
-.hero-name .line2 {
-  display: block;
-  font-family: var(--font-serif);
-  font-weight: 400;
-  font-style: italic;
-  color: var(--c-steel);
-}
-.hero-name .line3 { display: block; }
+.hero-name span { display: block; }
+.hero-name .soft { background: linear-gradient(transparent 62%, var(--c-accent) 62%); width: fit-content; }
 
-.hero-desc-block {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  padding-top: 2rem;
-  padding-left: 3rem;
-  animation: fadeUp 0.9s 0.2s var(--ease-out) both;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
+.hero-desc-block { padding-left: 3rem; display: flex; flex-direction: column; justify-content: flex-end; gap: 1.5rem; }
+.terminal { border: 1px solid var(--c-border); border-radius: 10px; background: var(--c-ink); color: var(--c-cream); overflow: hidden; }
+.terminal-bar { display: flex; gap: 6px; padding: 0.55rem 0.8rem; border-bottom: 1px solid rgba(247,242,235,0.15); }
+.terminal-bar i { width: 8px; height: 8px; border-radius: 50%; background: rgba(247,242,235,0.25); }
+.terminal-bar i:first-child { background: var(--c-accent); }
+.terminal-body { font-family: var(--font); font-size: 13px; padding: 1rem; min-height: 3.2rem; color: var(--c-cream); }
+.prompt { color: var(--c-accent); }
+.cursor { color: var(--c-accent); animation: blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
 
-.terminal-line {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--c-mid);
-  margin-bottom: 1.25rem;
-  padding: 0.6rem 1rem;
-  background: var(--c-glow);
-  border: 1px solid var(--c-border);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-.prompt { color: #4ade80; }
-.cmd { color: var(--c-fog); }
-.cursor { color: var(--c-fog); animation: blink 1s step-end infinite; }
-
-.hero-bio {
-  font-size: 13.5px;
-  color: var(--c-mid);
-  line-height: 1.8;
-  max-width: 360px;
-}
+.hero-bio { font-size: 15px; color: var(--c-muted); line-height: 1.75; max-width: 380px; }
+.hero-bio strong { font-size: 15px; font-weight: 500; color: var(--c-text); }
 
 .hero-meta {
-  grid-column: 1 / -1;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-top: 3.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--c-border);
-  animation: fadeUp 0.9s 0.35s var(--ease-out) both;
+  grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 1rem 3rem;
+  margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--c-border);
 }
+.hero-meta dt { font-size: 12px; color: var(--c-muted); }
+.hero-meta dd { font-size: 15px; font-weight: 500; }
 
-.meta-item { display: flex; flex-direction: column; gap: 0.1rem; }
-.meta-label { font-size: 10px; color: var(--c-mid); text-transform: uppercase; letter-spacing: 0.1em; }
-.meta-val   { font-size: 13px; color: var(--c-fog); font-weight: 500; }
-.meta-sep   { color: var(--c-border); font-size: 20px; }
+/* ── ABOUT ── */
+.about-strip { padding: 3.5rem 0; border-block: 1px solid var(--c-border); background: var(--c-glow); }
+.strip-inner { display: grid; grid-template-columns: 140px 1fr auto; gap: 2.5rem; align-items: start; }
+.strip-title { font-size: 1.25rem; }
+.strip-content { display: grid; gap: 1rem; max-width: 62ch; }
+.strip-content p { color: var(--c-muted); font-size: 14px; line-height: 1.8; }
+.strip-skills { display: flex; flex-direction: column; align-items: flex-end; gap: 0.4rem; }
+.chip { background: var(--c-grey); font-family: var(--font); font-size: 12px; padding: 0.25rem 0.75rem; border: 1px solid var(--c-border); border-radius: 100px; color: var(--c-muted); white-space: nowrap; transition: border-color 0.2s, color 0.2s; }
+.chip:hover { border-color: var(--c-accent); color: var(--c-text); }
 
-.scroll-hint {
-  position: absolute;
-  bottom: 2.5rem;
-  right: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--c-mid);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.scroll-line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, transparent, var(--c-border));
-  animation: scrollDown 1.5s ease-in-out infinite;
-}
-@keyframes scrollDown {
-  0%, 100% { transform: scaleY(1); transform-origin: top; }
-  50%       { transform: scaleY(0.5); transform-origin: top; }
-}
-
-/* ── ABOUT STRIP ─────────────────────────────────────── */
-.about-strip {
-  padding: 3rem 0;
-  border-top: 1px solid var(--c-border);
-  border-bottom: 1px solid var(--c-border);
-  background: var(--c-glow);
-}
-.strip-inner {
-  display: grid;
-  grid-template-columns: 120px 1fr auto;
-  gap: 2.5rem;
-  align-items: start;
-}
-.strip-tag {
-  font-size: 10px;
-  color: var(--c-mid);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding-top: 0.2rem;
-}
-.strip-content p {
-  color: var(--c-steel);
-  font-size: 13.5px;
-  line-height: 1.85;
-}
-.strip-skills {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  max-width: 220px;
-}
-.skill-chip {
-  font-size: 10px;
-  font-family: var(--font-mono);
-  padding: 0.2rem 0.65rem;
-  border: 1px solid var(--c-border);
-  border-radius: 100px;
-  color: var(--c-mid);
-  background: var(--c-glow);
-  white-space: nowrap;
-  transition: border-color 0.2s, color 0.2s;
-}
-.skill-chip:hover { border-color: var(--c-steel); color: var(--c-fog); }
-
-/* ── PROJECTS ────────────────────────────────────────── */
+/* ── PROJECTS ── */
 .projects { padding: 5rem 0; }
-
-.section-header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 3rem;
-}
-.section-tag {
-  font-size: 10px;
-  color: var(--c-mid);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-.section-title {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  color: var(--c-fog);
-  line-height: 1;
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  border: 1px solid var(--c-border);
-  background: var(--c-border);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
+.section-title { font-size: clamp(1.9rem, 4vw, 2.8rem); margin-bottom: 2.5rem; letter-spacing: -0.02em; }
+.project-grid { display: grid; grid-template-columns: minmax(0, 560px); }
 .project-card {
-  background: var(--c-bg);
-  padding: 2rem 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  transition: background 0.3s;
-  cursor: default;
+  background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 14px;
+  padding: 2rem; display: flex; flex-direction: column; gap: 1rem; transition: border-color 0.25s, transform 0.25s var(--ease-out);
 }
-.project-card:hover { background: var(--c-glow); }
+.project-card:hover { border-color: var(--c-accent); transform: translateY(-3px); }
+.card-top { display: flex; justify-content: space-between; align-items: center; }
+.card-name { font-size: 1.35rem; }
+.card-status { font-size: 12px; padding: 0.15rem 0.7rem; border: 1px solid var(--c-border); border-radius: 100px; color: var(--c-text); background: var(--c-glow); }
+.card-desc { font-size: 13.5px; color: var(--c-muted); line-height: 1.75; }
+.card-footer { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; flex-wrap: wrap; padding-top: 1rem; border-top: 1px solid var(--c-border); }
+.card-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.tag { background: var(--c-grey); font-family: var(--font); font-size: 11.5px; padding: 0.1rem 0.5rem; border: 1px solid var(--c-border); border-radius: 4px; color: var(--c-muted); }
+.card-footer-right { display: flex; align-items: center; gap: 1rem; }
+.card-github { font-size: 13px; color: var(--c-text); border-bottom: 2px solid var(--c-accent); }
+.card-github:hover { border-color: var(--c-accent); }
+.card-year { font-family: var(--font); font-size: 12px; color: var(--c-muted); }
 
-.card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.card-id {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--c-mid);
-}
-.card-status {
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 0.15rem 0.55rem;
-  border-radius: 100px;
-  border: 1px solid;
-}
-.card-status.production {
-  color: #4ade80;
-  border-color: rgba(74, 222, 128, 0.3);
-  background: rgba(74, 222, 128, 0.06);
-}
-.card-status.personal {
-  color: var(--c-steel);
-  border-color: var(--c-border);
-  background: var(--c-glow);
-}
-
-.card-name {
-  font-family: var(--font-display);
-  font-size: 1rem;
-  color: var(--c-fog);
-  font-weight: 600;
-  line-height: 1.3;
-}
-.card-desc {
-  font-size: 12px;
-  color: var(--c-mid);
-  line-height: 1.75;
-  flex: 1;
-}
-.card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--c-border);
-}
-.card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
-.tag {
-  font-size: 9px;
-  font-family: var(--font-mono);
-  padding: 0.1rem 0.45rem;
-  border: 1px solid var(--c-border);
-  border-radius: 3px;
-  color: var(--c-mid);
-}
-.card-year {
-  font-size: 10px;
-  color: var(--c-border);
-  font-family: var(--font-mono);
-  white-space: nowrap;
-}
-
-/* ── CONTACT ─────────────────────────────────────────── */
+/* ── CONTACT ── */
 .contact { padding: 5rem 0; border-top: 1px solid var(--c-border); }
-.contact-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-.contact-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  color: var(--c-fog);
-  line-height: 1;
-  margin: 0.5rem 0 1rem;
-}
-.contact-sub { font-size: 13px; color: var(--c-mid); line-height: 1.8; max-width: 340px; }
+.contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.contact-title { font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1; letter-spacing: -0.025em; margin-bottom: 1rem; }
+.contact-sub { color: var(--c-muted); max-width: 36ch; line-height: 1.8; }
+.social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.social-card { display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.2rem; border: 1px solid var(--c-border); border-radius: 12px; background: var(--c-surface); transition: border-color 0.25s, transform 0.25s var(--ease-out); }
+.social-card:hover { border-color: var(--c-accent); transform: translateY(-2px); }
+.social-icon { width: 34px; height: 34px; border-radius: 8px; background: var(--c-accent); display: grid; place-items: center; font-family: var(--font); font-size: 12px; color: var(--c-ink); }
+.social-label { flex: 1; font-weight: 500; }
+.social-arrow { color: var(--c-muted); }
 
-.social-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-}
-.social-card {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 1.25rem;
-  border: 1px solid var(--c-border);
-  border-radius: 10px;
-  background: var(--c-glow);
-  transition: border-color 0.25s, background 0.25s, transform 0.25s var(--ease-spring);
-}
-.social-card:hover {
-  border-color: var(--c-steel);
-  background: rgba(184,197,214,0.06);
-  transform: translateY(-2px);
-}
-.social-icon-wrap {
-  width: 32px; height: 32px;
-  border-radius: 6px;
-  background: var(--c-border);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.social-icon-text { font-size: 10px; color: var(--c-steel); font-family: var(--font-mono); font-weight: 500; }
-.social-label { flex: 1; font-size: 13px; color: var(--c-fog); font-weight: 500; }
-.social-arrow { font-size: 14px; color: var(--c-mid); }
+.footer { padding: 2rem 0; border-top: 1px solid var(--c-border); font-size: 13px; color: var(--c-muted); }
+.footer-inner { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.mono { font-family: var(--font); }
 
-/* ── FOOTER ──────────────────────────────────────────── */
-.footer {
-  padding: 2rem 0;
-  border-top: 1px solid var(--c-border);
-}
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.footer-copy { font-size: 11px; color: var(--c-mid); }
-.footer-sig  { font-size: 11px; color: var(--c-border); }
-
-/* ── TOGGLE ──────────────────────────────────────────── */
+/* ── TOGGLE ── */
 #mode-toggle {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 1000;
-  background: var(--c-surface);
-  border: 1px solid var(--c-border);
-  border-radius: 50px;
-  padding: 0.65rem 1rem;
-  cursor: pointer;
-  color: var(--c-fog);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: all 0.3s var(--ease-spring);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  position: fixed; right: 1.5rem; bottom: 1.5rem; z-index: 1000;
+  display: flex; align-items: center; gap: 0.6rem; padding: 0.65rem 1.1rem;
+  background: var(--c-surface); color: var(--c-text); border: 1px solid var(--c-border); border-radius: 50px;
+  font: inherit; font-size: 13px; cursor: pointer; box-shadow: 0 6px 24px rgba(46,52,37,0.15);
+  transition: border-color 0.25s, transform 0.25s var(--ease-out);
 }
-#mode-toggle:hover {
-  border-color: var(--c-steel);
-  transform: scale(1.05);
-}
-#mode-toggle:hover .toggle-tooltip { opacity: 1; transform: translateX(-100%) translateX(-1rem) translateY(-50%); }
+#mode-toggle:hover { border-color: var(--c-accent); transform: scale(1.04); }
+.toggle-icon { font-size: 18px; color: var(--c-accent); }
 
-.toggle-tooltip {
-  position: absolute;
-  right: calc(100% + 0.75rem);
-  top: 50%;
-  transform: translateX(calc(-100% + 0)) translateY(-50%);
-  background: var(--c-surface);
-  border: 1px solid var(--c-border);
-  border-radius: 6px;
-  padding: 0.35rem 0.75rem;
-  font-size: 11px;
-  color: var(--c-fog);
-  white-space: nowrap;
-  opacity: 0;
-  transition: opacity 0.2s, transform 0.25s var(--ease-out);
-  pointer-events: none;
-}
-
-.toggle-icon { font-size: 18px; }
-
-/* ── LIGHT SITE ──────────────────────────────────────── */
-#light-site { display: none; }
-#light-site.visible { display: block; }
-#dark-site.hidden  { display: none; }
-
-.light-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(245, 242, 238, 0.9);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(74,85,104,0.12);
-  padding: 1rem 0;
-}
-.light-nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.light-nav-logo {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.1rem;
-  color: var(--c-fog);
-}
+/* ── ANOTHER SIDE ── */
+.hidden { display: none !important; }
+.light-nav { position: sticky; top: 0; z-index: 100; background: var(--c-nav); backdrop-filter: blur(12px); border-bottom: 1px solid var(--c-border); padding: 1rem 0; }
+.light-nav-inner { display: flex; justify-content: space-between; align-items: center; }
+.light-nav-logo { font-weight: 500; font-size: 1rem; }
 .light-nav-links { display: flex; gap: 2rem; }
-.light-nav-link {
-  font-size: 13px;
-  color: var(--c-mid);
-  text-transform: lowercase;
-  font-family: var(--font-mono);
-  padding-bottom: 0.25rem;
-  border-bottom: 1px solid transparent;
-  transition: color 0.2s, border-color 0.2s;
-}
-.light-nav-link.active, .light-nav-link:hover {
-  color: var(--c-fog);
-  border-bottom-color: var(--c-fog);
-}
+.light-nav-link { font-size: 14px; color: var(--c-muted); padding-bottom: 0.2rem; border-bottom: 1px solid transparent; transition: color 0.2s, border-color 0.2s; }
+.light-nav-link.active, .light-nav-link:hover { color: var(--c-text); border-bottom-color: var(--c-accent); }
 
 .light-content { padding: 4rem 0 8rem; }
-
-.light-hero {
-  margin-bottom: 3rem;
-}
-.light-overline {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--c-mid);
-  font-family: var(--font-mono);
-  margin-bottom: 0.5rem;
-}
-.light-title {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  color: var(--c-fog);
-  line-height: 1;
-}
-.serif-style {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-}
-
-/* HOBBIES */
-.hobby-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-.hobby-card {
-  background: var(--c-surface);
-  border: 1px solid var(--c-border);
-  border-radius: 12px;
-  padding: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s;
-}
-.hobby-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
-.hc-large { grid-column: span 2; }
-.hc-wide  { grid-column: span 2; }
-
-.hobby-emoji { font-size: 2rem; }
-.hobby-card h3 { font-size: 1.05rem; color: var(--c-fog); font-family: var(--font-display); }
-.hobby-card p  { font-size: 12.5px; color: var(--c-mid); line-height: 1.75; flex: 1; }
-.hobby-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; }
-.hobby-tags span {
-  font-size: 10px; font-family: var(--font-mono);
-  padding: 0.15rem 0.5rem; border: 1px solid var(--c-border);
-  border-radius: 4px; color: var(--c-mid);
-}
-
-/* CONTRIBUTE */
-.contribute-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-.contrib-card {
-  background: var(--c-surface);
-  border: 1px solid var(--c-border);
-  border-radius: 12px;
-  padding: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-.cc-featured { grid-column: span 2; background: #f8f4f0; border-color: rgba(74,85,104,0.2); }
-.cc-wide { grid-column: span 2; }
-.contrib-label {
-  font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
-  color: var(--c-mid); font-family: var(--font-mono);
-}
-.contrib-card h3 { font-size: 1.1rem; color: var(--c-fog); font-family: var(--font-display); }
-.contrib-card p { font-size: 12.5px; color: var(--c-mid); line-height: 1.75; flex: 1; }
-.contrib-link {
-  font-size: 12px; color: var(--c-fog); text-decoration: underline;
-  text-underline-offset: 3px; width: fit-content;
-}
-.contrib-cta { margin-top: 0.5rem; }
-.cta-btn {
-  display: inline-block;
-  background: var(--c-fog);
-  color: var(--c-bg);
-  padding: 0.55rem 1.25rem;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  transition: opacity 0.2s;
-}
-.cta-btn:hover { opacity: 0.85; }
-
-.hidden { display: none !important; }
 .light-section { min-height: 70vh; }
+.light-title { font-size: clamp(2.2rem, 6vw, 3.8rem); line-height: 1; letter-spacing: -0.03em; }
+.light-title em { font-style: normal; background: linear-gradient(transparent 62%, var(--c-accent) 62%); }
+.light-lede { color: var(--c-muted); margin: 0.75rem 0 3rem; }
 
-/* ── HERO HEADLINE ───────────────────────────────────── */
-.hero-headline {
-  font-family: var(--font-display);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--c-fog);
-  display: inline-block;
-  margin-bottom: 0.5rem;
+.hobby-grid, .contribute-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.hobby-card, .contrib-card {
+  background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 14px; padding: 1.75rem;
+  display: flex; flex-direction: column; gap: 0.7rem; transition: transform 0.3s var(--ease-out), border-color 0.25s;
 }
-
-/* ── SINGLE PROJECT CARD ─────────────────────────────── */
-.project-grid--single {
-  grid-template-columns: 1fr;
-  max-width: 560px;
-}
-.card-footer-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.card-github {
-  font-size: 11px;
-  font-family: var(--font-mono);
-  color: var(--c-steel);
-  border-bottom: 1px solid var(--c-border);
-  padding-bottom: 1px;
-  transition: color 0.2s, border-color 0.2s;
-}
-.card-github:hover { color: var(--c-fog); border-color: var(--c-steel); }
-
-/* ── IOT CLAY SCULPTURE ──────────────────────────────── */
+.hobby-card:hover, .contrib-card:hover { transform: translateY(-3px); border-color: var(--c-accent); }
 .hc-full { grid-column: 1 / -1; }
-.hobby-card-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-.hobby-card-header .hobby-emoji { font-size: 2rem; flex-shrink: 0; margin-top: 0.1rem; }
-.hobby-sub { font-size: 12px; color: var(--c-mid); margin-top: 0.25rem; }
+.hobby-emoji { font-size: 2rem; }
+.hobby-card h3, .contrib-card h3 { font-size: 1.2rem; }
+.hobby-card p, .contrib-card p { font-size: 13.5px; color: var(--c-muted); line-height: 1.75; flex: 1; }
+.hobby-card-header { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 0.5rem; }
+.hobby-sub { max-width: 62ch; margin-top: 0.3rem; }
+.hobby-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.4rem; }
+.hobby-tags span { background: var(--c-grey); font-family: var(--font); font-size: 11.5px; padding: 0.15rem 0.55rem; border: 1px solid var(--c-border); border-radius: 4px; color: var(--c-muted); }
 
-.clay-gallery {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.75rem;
-  margin: 0.5rem 0 1rem;
-}
-.clay-photo {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  aspect-ratio: 3/4;
-  cursor: pointer;
-  border: 1px solid var(--c-border);
-}
-.clay-placeholder {
-  width: 100%; height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  transition: transform 0.4s var(--ease-out);
-}
-.cp1 { background: linear-gradient(135deg, #1a2e1a 0%, #2d3d2a 100%); }
-.cp2 { background: linear-gradient(135deg, #2e1a2e 0%, #3d2a3a 100%); }
-.cp3 { background: linear-gradient(135deg, #1a2a2e 0%, #2a3a3d 100%); }
-.cp4 { background: linear-gradient(135deg, #2e2a1a 0%, #3d3a2a 100%); }
-
-.clay-icon { font-size: 2.5rem; }
-.clay-chip {
-  font-size: 9px;
-  font-family: var(--font-mono);
-  color: rgba(237,245,252,0.5);
-  text-align: center;
-  padding: 0.2rem 0.5rem;
-  border: 1px solid rgba(237,245,252,0.12);
-  border-radius: 4px;
-  background: rgba(0,0,0,0.2);
+.clay-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin: 0.5rem 0 1rem; }
+.clay-photo { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 3 / 4; border: 1px solid var(--c-border); cursor: pointer; }
+.clay-placeholder { position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem; transition: transform 0.4s var(--ease-out); }
+.clay-placeholder img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cp1 { background: linear-gradient(135deg, #a3b088, #8B9A6E); }
+.cp2 { background: linear-gradient(135deg, #EAE2D6, #dcd2c2); }
+.cp3 { background: linear-gradient(135deg, #EEEEEE, #dedede); }
+.clay-icon { font-size: 2.6rem; }
+.clay-chip { position: relative; font-family: var(--font); font-size: 11px; padding: 0.2rem 0.55rem; border-radius: 4px; background: rgba(20, 32, 25, 0.6); color: #e7eddf; }
+.clay-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1.2rem; background: rgba(24, 36, 29, 0.93); opacity: 0; transition: opacity 0.3s; }
+.clay-overlay p { color: #e7eddf !important; font-size: 13px !important; text-align: center; flex: none !important; }
+.clay-photo:hover .clay-overlay, .clay-photo:focus-visible .clay-overlay { opacity: 1; }
+@media (hover: none) {
+  .clay-overlay { inset: auto 0 0 0; opacity: 1; padding: 0.75rem; background: linear-gradient(transparent, rgba(24,36,29,0.95) 35%); }
+  .clay-overlay p { font-size: 11.5px !important; }
+  .clay-chip { display: none; }
 }
 
-.clay-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(39,45,45,0.92);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  opacity: 0;
-  transition: opacity 0.3s var(--ease-out);
-  backdrop-filter: blur(4px);
-}
-.clay-overlay p {
-  font-size: 11px;
-  color: var(--c-fog);
-  line-height: 1.7;
-  text-align: center;
-}
-.clay-photo:hover .clay-overlay { opacity: 1; }
-.clay-photo:hover .clay-placeholder { transform: scale(1.03); }
+.contribute-grid .cc-featured { grid-column: span 2; }
+.cc-mission { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 1.5rem; background: var(--c-glow); }
+.mission-icon { font-size: 2.4rem; }
+.mission-text { font-size: 1.05rem !important; color: var(--c-text) !important; line-height: 1.8 !important; }
+.contrib-label { font-size: 13px; color: var(--c-muted); font-weight: 500; }
+.contrib-link { width: fit-content; font-size: 14px; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--c-accent); }
 
-/* ── MISSION CARD ────────────────────────────────────── */
-.cc-mission {
-  grid-column: 1 / -1;
-  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%) !important;
-  border-color: rgba(76,175,80,0.25) !important;
-  flex-direction: row;
-  align-items: center;
-  gap: 1.5rem;
-}
-.mission-icon { font-size: 2.5rem; flex-shrink: 0; }
-.mission-text {
-  font-size: 13.5px;
-  color: #2d5a2d;
-  line-height: 1.85;
-  font-style: italic;
-}
-
-
+/* ── RESPONSIVE ── */
 @media (max-width: 768px) {
+  .hero { padding-top: 4rem; }
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-desc-block { grid-column: 1; padding-left: 0; padding-top: 2rem; }
-  .strip-inner { grid-template-columns: 1fr; }
-  .strip-skills { align-items: flex-start; flex-direction: row; flex-wrap: wrap; max-width: 100%; }
-  .project-grid { grid-template-columns: 1fr; }
-  .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-desc-block { padding: 2rem 0 0; }
+  .hero-meta { gap: 1rem 2rem; margin-top: 2.5rem; }
+  .strip-inner, .contact-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  .strip-skills { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
   .hobby-grid, .contribute-grid { grid-template-columns: 1fr; }
-  .hc-full, .cc-featured, .cc-wide, .cc-mission { grid-column: span 1; }
-  .clay-gallery { grid-template-columns: repeat(2, 1fr); }
-  .cc-mission { flex-direction: column; }
+  .contribute-grid .cc-featured, .hc-full, .cc-mission { grid-column: auto; }
+  .cc-mission { flex-direction: column; align-items: flex-start; }
+  .clay-gallery { grid-template-columns: 1fr 1fr; }
+  .toggle-text { display: none; }
+  #mode-toggle { padding: 0.7rem 0.85rem; }
 }
 </style>
 
 <script>
-  // ── TYPEWRITER ────────────────────────────────────────
   const phrases = [
-    "kubectl get pods --all-namespaces",
-    "terraform apply -auto-approve",
-    "git commit -m 'fix: prod is on fire'",
-    "ansible-playbook harden.yml",
-    "docker build -t magic:latest .",
-    "systemctl restart everything",
+    "UPDATE planet SET happy = 1 WHERE green = 1;",
+    "DELETE FROM servers WHERE doing_nothing = 1;",
+    "CREATE INDEX ix_save_watts ON queries (cost);",
+    "SELECT TOP 5 query FROM logs ORDER BY watts DESC;"
   ];
   let pi = 0, ci = 0, deleting = false;
-  const el = document.getElementById('typewriter');
-
+  const tw = document.getElementById('typewriter');
   function type() {
-    if (!el) return;
+    if (!tw) return;
     const current = phrases[pi];
     if (!deleting) {
-      el.textContent = current.slice(0, ++ci);
-      if (ci === current.length) {
-        deleting = true;
-        setTimeout(type, 2200);
-        return;
-      }
+      tw.textContent = current.slice(0, ++ci);
+      if (ci === current.length) { deleting = true; setTimeout(type, 2200); return; }
     } else {
-      el.textContent = current.slice(0, --ci);
-      if (ci === 0) {
-        deleting = false;
-        pi = (pi + 1) % phrases.length;
-      }
+      tw.textContent = current.slice(0, --ci);
+      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
     }
     setTimeout(type, deleting ? 35 : 65);
   }
-  setTimeout(type, 1000);
+  setTimeout(type, 800);
 
-  // ── MODE TOGGLE ───────────────────────────────────────
-  const toggle = document.getElementById('mode-toggle');
+  // Side toggle
+  const toggle = document.getElementById('mode-toggle') as HTMLButtonElement | null;
+  const toggleText = toggle?.querySelector('.toggle-text');
+  const toggleIcon = toggle?.querySelector('.toggle-icon');
   const darkSite = document.getElementById('dark-site');
   const lightSite = document.getElementById('light-site');
-  const darkIcon = document.querySelector('.dark-icon') as HTMLElement;
-  const lightIcon = document.querySelector('.light-icon') as HTMLElement;
   let isLight = false;
 
   toggle?.addEventListener('click', () => {
     isLight = !isLight;
-    if (isLight) {
-      darkSite?.classList.add('hidden');
-      lightSite?.classList.remove('hidden');
-      lightSite?.classList.add('visible');
-      document.body.classList.add('light-mode');
-      if (darkIcon) darkIcon.style.display = 'none';
-      if (lightIcon) lightIcon.style.display = 'inline';
-    } else {
-      darkSite?.classList.remove('hidden');
-      lightSite?.classList.remove('visible');
-      lightSite?.classList.add('hidden');
-      document.body.classList.remove('light-mode');
-      if (darkIcon) darkIcon.style.display = 'inline';
-      if (lightIcon) lightIcon.style.display = 'none';
-    }
+    darkSite?.classList.toggle('hidden', isLight);
+    lightSite?.classList.toggle('hidden', !isLight);
+    document.body.classList.toggle('light-mode', isLight);
+    toggle.setAttribute('aria-pressed', String(isLight));
+    toggle.setAttribute('aria-label', isLight ? 'Back to my work' : 'Show another side of me');
+    if (toggleText) toggleText.textContent = isLight ? 'back to work' : 'another side of me';
+    if (toggleIcon) toggleIcon.textContent = isLight ? '◐' : '◑';
+    window.scrollTo({ top: 0 });
   });
 
-  // ── LIGHT NAV TABS ────────────────────────────────────
-  const navLinks = document.querySelectorAll('.light-nav-link');
+  // Light-side tabs
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.light-nav-link');
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      const tab = (link as HTMLElement).dataset.tab;
       navLinks.forEach(l => l.classList.remove('active'));
       link.classList.add('active');
       document.getElementById('tab-hobbies')?.classList.add('hidden');
       document.getElementById('tab-contribute')?.classList.add('hidden');
-      document.getElementById(`tab-${tab}`)?.classList.remove('hidden');
+      document.getElementById(`tab-${link.dataset.tab}`)?.classList.remove('hidden');
     });
-  });
-
-  // ── SCROLL REVEAL ─────────────────────────────────────
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        (e.target as HTMLElement).style.opacity = '1';
-        (e.target as HTMLElement).style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.project-card, .hobby-card, .contrib-card').forEach(el => {
-    (el as HTMLElement).style.opacity = '0';
-    (el as HTMLElement).style.transform = 'translateY(20px)';
-    (el as HTMLElement).style.transition = 'opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out)';
-    observer.observe(el);
   });
 </script>
